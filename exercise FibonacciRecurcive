@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class FibonacciFactorial {
+
+    // Recursive method to calculate Fibonacci number
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    // Method to calculate factorial iteratively
+    public static int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Asking the user to input a number
+        System.out.print("Enter any number: ");
+        int n = scanner.nextInt();
+
+        // Get the Fibonacci number at position n
+        System.out.println("The Fibonacci number at position " + n + " is: " + fibonacci(n));
+
+        // Get the factorial of number n
+        System.out.println("The factorial of " + n + " is: " + factorial(n));
+        
+        // Close the scanner to prevent resource leak
+        scanner.close();
+    }
+}
