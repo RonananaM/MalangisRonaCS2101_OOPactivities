@@ -1,0 +1,7 @@
+SmartCity Planner: An OOP Approach to Urban Simulations
+
+The SmartCity Planner project uses Object-Oriented Programming (OOP) to create a virtual urban simulation. In this project, different elements of a city are represented as objects with specific properties and behaviors. For example, classes could include Building, Vehicle, Road, Person, and Utility, each with unique attributes (like building height, vehicle speed, or utility type) and methods to define interactions (such as commuting, energy usage, and traffic flow).
+
+The goal is to design a dynamic, scalable city where objects interact, change, and adapt based on user-defined rules or random events (e.g., traffic congestion or power outages). Through this, you can demonstrate key OOP concepts like inheritance (e.g., different types of vehicles), encapsulation (each building managing its own resource use), and polymorphism (different responses to events like rain or rush hours).
+
+This project can be expanded by adding user controls to adjust city elements or by implementing AI-driven decision-making, creating a realistic urban environment simulation.
