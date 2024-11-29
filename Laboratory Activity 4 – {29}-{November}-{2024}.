@@ -1,0 +1,127 @@
+import java.text.DecimalFormat;
+
+// Define the Shape interface
+interface Shape {
+    double getArea(); // Method to calculate the area of the shape
+    double getPerimeter(); // Method to calculate the perimeter of the shape
+    void printShapeType(); // Method to display the type of shape
+}
+
+// Implement the Square class
+class Square implements Shape {
+    private double side; // Property to store the length of the square's side
+
+    // Constructor to initialize the side of the square
+    public Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public double getArea() {
+        return side * side;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 4 * side;
+    }
+
+    @Override
+    public void printShapeType() {
+        System.out.println("Square");
+    }
+}
+
+// Implement the Rectangle class
+class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    // Constructor to initialize length and width
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double getArea() {
+        return length * width;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * (length + width);
+    }
+
+    @Override
+    public void printShapeType() {
+        System.out.println("Rectangle");
+    }
+}
+
+// Implement the Triangle class
+class Triangle implements Shape {
+    private double a, b, c;
+
+    // Constructor to initialize the sides of the triangle
+    public Triangle(double a, double b, double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
+    public double getArea() {
+        double s = (a + b + c) / 2; // Semi-perimeter
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c)); // Heron's formula
+    }
+
+    @Override
+    public double getPerimeter() {
+        return a + b + c;
+    }
+
+    @Override
+    public void printShapeType() {
+        System.out.println("Triangle");
+    }
+}
+
+// Define the ShapeCollection class
+class ShapeCollection {
+    private Shape[] shapes; // Array to store shapes
+
+    // Constructor to initialize the shapes array
+    public ShapeCollection(Shape[] shapes) {
+        this.shapes = shapes;
+    }
+
+    // Method to compute and print area and perimeter of all shapes
+    public void getPropertyValues() {
+        DecimalFormat df = new DecimalFormat("#.00"); // Format for two decimal places
+
+        for (Shape shape : shapes) {
+            shape.printShapeType();
+            System.out.println("Area: " + df.format(shape.getArea()));
+            System.out.println("Perimeter: " + df.format(shape.getPerimeter()));
+            System.out.println();
+        }
+    }
+}
+
+// Main class to test the implementation
+public class Main {
+    public static void main(String[] args) {
+        // Create individual shapes
+        Square square = new Square(10);
+        Rectangle rectangle = new Rectangle(8, 12);
+        Triangle triangle = new Triangle(10, 12, 15);
+
+        // Create a collection of shapes
+        Shape[] shapes = { square, rectangle, triangle };
+        ShapeCollection shapeCollection = new ShapeCollection(shapes);
+
+        // Compute and print the area and perimeter of each shape
+        shapeCollection.getPropertyValues();
+    }
+}
